@@ -2,34 +2,31 @@ package exemplo2;
 
 public class TestaContaCorrente {
 
-		public static void main(String[] args) {
-			
-			Cliente natan = new Cliente("Natan", "123.456.789-12", 25);
-			Corrente contaNatan = new Corrente();
-			contaNatan.setCliente(natan);
-			contaNatan.setAgencia("1324-5");
-			contaNatan.setNumero("123-2");
-			contaNatan.setLimite(1000f);
-			contaNatan.setSaldo(2000f);
-			
+	public static void main(String[] args) {
+		
+		Cliente natan = new Cliente("Natan", "123.456.789-12", 25);
+		Poupança contaNatan = new Poupança();
+		contaNatan.setCliente(natan);
+		contaNatan.setAgencia("1234-5");
+		contaNatan.setNumero("123-2");
+		contaNatan.setSaldo(2000f);
+		
+		Cliente jackson = new Cliente("Jackson", "987.654.321-98", 43);
+		Corrente contaJackson = new Corrente();
+		contaJackson.setCliente(jackson);
+		contaJackson.setAgencia("9876-5");
+		contaJackson.setNumero("987-2");
+		contaJackson.setLimite(500f);
+		contaJackson.setSaldo(3000f);
+		
+//		contaJackson.transfere(3200f, contaNatan);
+//		contaNatan.transfere(200f, contaJackson);
+		
+		System.out.println(contaNatan);
+		System.out.println(contaJackson);
+		
+		System.out.println("Quantidade de Contas: " + Conta.getQuantidade());
+		
+	}
 
-			Cliente jackson = new Cliente("Jackson", "123.456.789-13", 43);
-			Corrente contaJackson = new Corrente();
-			contaJackson.setCliente(jackson);
-			contaJackson.setAgencia("1324-6");
-			contaJackson.setNumero("123-5");
-			contaJackson.setLimite(1000f);
-			contaJackson.setSaldo(3000f);
-			
-			
-			// contaNatan.deposita(600f);
-			// contaJackson.saca(500f);
-			
-			contaJackson.trasnfere(3200, contaNatan);
-			// contaNatan.trasnfere (200f, contaJackson);
-			
-			System.out.println(contaNatan);
-			System.out.println(contaJackson);
-			
-		}
 }

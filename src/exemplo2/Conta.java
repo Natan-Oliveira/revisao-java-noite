@@ -1,13 +1,17 @@
 package exemplo2;
 
-public abstract class Conta {
+public abstract class Conta implements PersistDB {
 
+	private Integer id;
 	private Cliente cliente;
 	private String agencia;
 	private String numero;
 	private float saldo;
+	private Integer quantidade;
 	
-	public Conta() {}
+	public Conta() {
+		this.quantidade++;
+	}
 
 	public Conta(Cliente cliente, String agencia, String numero, float saldo) {
 		super();
@@ -15,6 +19,17 @@ public abstract class Conta {
 		this.agencia = agencia;
 		this.numero = numero;
 		this.saldo = saldo;
+		this.quantidade++;
+	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Cliente getCliente() {
@@ -74,16 +89,18 @@ public abstract class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta [cliente=" + cliente + ", agencia=" + agencia + ", numero=" + numero + ", saldo=" + saldo + "]";
+		return "Conta [cliente=" + cliente + "," + "agencia=" + agencia + "," + "numero=" + numero + "," + "saldo=" + saldo + "]";
 	}
 	
-	public Boolean saca (float valor) {
-		if(valor > 0 && this.saldo >= valor) {
-			this.saldo -= valor; 
-			return true;
-		}
-		return false;
-	}
+	// public Boolean saca (float valor) {
+		// if(valor > 0 && this.saldo >= valor) {
+			// this.saldo -= valor; 
+			// return true;
+		// }
+		// return false;
+	// }
+	
+	abstract Boolean saca(Float valor);
 	
 	public Boolean deposita (float valor) {
 		if(valor > 0) {
@@ -100,6 +117,11 @@ public abstract class Conta {
 			return true;
 		}
 		return false;
+	}
+
+	public static String getQuantidade() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

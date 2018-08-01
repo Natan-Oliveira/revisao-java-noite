@@ -1,6 +1,6 @@
 package exemplo2;
 
-public class Cliente {
+public class Cliente implements PersistDB, Repositorio {
 
 	private Integer id;
 	private String nome;
@@ -77,5 +77,24 @@ public class Cliente {
 		public String toString() {
 			return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", idade=" + idade + "]";
 		}
+
+		@Override
+		public void salva(Cliente clinte) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void edita(Cliente clinte) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void remove(Cliente clinte) {
+			// TODO Auto-generated method stub
+			
+		}
+
 		
 }
